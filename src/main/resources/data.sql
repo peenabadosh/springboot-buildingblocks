@@ -1,3 +1,8 @@
-insert into user values(101, 'kreddy@stacksimplify.com', 'Kalyan', 'Reddy', 'admin', 'ssn101', 'kreddy');
-insert into user values(102, 'gwiser@stacksimplify.com', 'Greg', 'Wiser', 'admin', 'ssn102', 'gwiser');
-insert into user values(103, 'dmark@stacksimplify.com', 'David', 'Mark', 'admin', 'ssn103', 'dmark');    
+INSERT INTO user (id, USER_NAME, FIRST_NAME, SECOND_NAME, SSN, role, EMAIL_ADDRESS)
+VALUES (101, 'richa11', 'richa', 'sharma', 'ssn1', 'admin', 'richa.sharma@gmail.com');
+
+INSERT INTO user (id, USER_NAME, FIRST_NAME, SECOND_NAME, SSN, role, EMAIL_ADDRESS)
+VALUES (102, 'disha123', 'disha', 'paltani', 'ssn2', 'tester', 'disha.platani@gmail.com');
+
+INSERT INTO user (id, USER_NAME, FIRST_NAME, SECOND_NAME, SSN, role, EMAIL_ADDRESS)
+VALUES (103, 'divya1', 'divya', 'sahu', 'ssn3', 'dba', 'divya.sahu@gmail.com');
