@@ -1,9 +1,12 @@
 package com.stacksimplify.restservices.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -19,7 +22,7 @@ public class User {
 	@NotEmpty(message = "Username is mandatory field. Please provide username.")
 	@Column(name = "USER_NAME", length = 50, nullable = false, unique = true)
 	private String username;
-	@Size(min=2, message="first name should have at least 2 characters.")
+	@Size(min = 2, message = "first name should have at least 2 characters.")
 	@Column(name = "FIRST_NAME", length = 50, nullable = false)
 	private String firstname;
 	@Column(name = "SECOND_NAME", length = 50, nullable = false)
@@ -30,8 +33,18 @@ public class User {
 	private String role;
 	@Column(name = "EMAIL_ADDRESS", length = 50, nullable = false)
 	private String email;
+	@OneToMany(mappedBy = "user")
+	private List<Order> orders;
 
-//	NO ARGUMENT CONSTRUCTOR
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	// NO ARGUMENT CONSTRUCTOR
 	public User() {
 
 	}
