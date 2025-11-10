@@ -25,16 +25,14 @@ public class HelloWorldController1 {
 	public String helloworld() {
 		return "Hello World";
 	}
-	
-@GetMapping("/helloworld-bean")
-	public UserDetails helloWorldBean()
-	{
+
+	@GetMapping("/helloworld-bean")
+	public UserDetails helloWorldBean() {
 		return new UserDetails("Richa", "Sharma", "Noida");
 	}
 
-@GetMapping("/hello-int")
-public String getMessageinI18NFormat(@RequestHeader(name="Accept-Language", required = false) String locale)
-{
-	return messageSource.getMessage("label.hello",null,  new Locale (locale) );
-}
+	@GetMapping("/hello-int")
+	public String getMessageinI18NFormat(@RequestHeader(name = "Accept-Language", required = false) String locale) {
+		return messageSource.getMessage("label.hello", null, new Locale(locale));
+	}
 }

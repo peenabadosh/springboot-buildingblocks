@@ -30,13 +30,13 @@ import com.stacksimplify.restservices.services.UserService;
 
 @RestController
 @Validated
-@RequestMapping(value="/users")
+@RequestMapping(value = "/users")
 public class UserController {
 
 	@Autowired
 	private UserService userService;
 
-	//get all users
+	// get all users
 	@GetMapping
 	public List<User> getAllUsers() {
 		return userService.getAllUsers();
@@ -55,9 +55,9 @@ public class UserController {
 		}
 	}
 
-	//get user by id
+	// get user by id
 	@GetMapping("/{id}")
-	public Optional<User> getUserById(@PathVariable("id") @Min (1) Long id) {
+	public Optional<User> getUserById(@PathVariable("id") @Min(1) Long id) {
 
 		try {
 			return userService.getUserById(id);
@@ -88,9 +88,9 @@ public class UserController {
 	public User getUserByUsername(@PathVariable("username") String username) throws UserNameNotFoundException {
 		User user = userService.getUserByUsername(username);
 
-    if (user == null) {
-        throw new UserNameNotFoundException("Username '" + username + "' not found in user repository");
-    }
-    return user;
-}
+		if (user == null) {
+			throw new UserNameNotFoundException("Username '" + username + "' not found in user repository");
+		}
+		return user;
+	}
 }

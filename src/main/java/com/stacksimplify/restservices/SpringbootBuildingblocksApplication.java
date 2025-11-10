@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties.Local
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
+
 //
 @SpringBootApplication
 public class SpringbootBuildingblocksApplication {
@@ -18,19 +19,17 @@ public class SpringbootBuildingblocksApplication {
 	}
 
 	@Bean
-	public AcceptHeaderLocaleResolver localeResolver()
-	{ 
+	public AcceptHeaderLocaleResolver localeResolver() {
 		AcceptHeaderLocaleResolver localeResolver = new AcceptHeaderLocaleResolver();
 		localeResolver.setDefaultLocale(Locale.US);
 		return localeResolver;
-		 
+
 	}
+
 	@Bean
-	public ResourceBundleMessageSource messageSource()
-	{
+	public ResourceBundleMessageSource messageSource() {
 		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
 		messageSource.addBasenames("messages");
 		return messageSource;
 	}
 }
- 

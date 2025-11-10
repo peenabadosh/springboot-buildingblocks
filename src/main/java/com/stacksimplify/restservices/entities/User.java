@@ -13,9 +13,13 @@ import javax.validation.constraints.Size;
 
 import org.springframework.hateoas.ResourceSupport;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 //Entity
 @Entity
 @Table(name = "user")
+//@JsonIgnoreProperties({"firstname","secondname"}) - static filtering
+@JsonFilter(value="userFilter")
 public class User extends ResourceSupport {
 
 	@Id
@@ -123,6 +127,7 @@ public class User extends ResourceSupport {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	// TO STRING METHOD (Optional required for bean logging)
 	@Override
 	public String toString() {
