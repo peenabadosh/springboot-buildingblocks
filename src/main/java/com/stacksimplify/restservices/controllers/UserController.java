@@ -36,6 +36,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	//get all users
 	@GetMapping
 	public List<User> getAllUsers() {
 		return userService.getAllUsers();
@@ -54,6 +55,7 @@ public class UserController {
 		}
 	}
 
+	//get user by id
 	@GetMapping("/{id}")
 	public Optional<User> getUserById(@PathVariable("id") @Min (1) Long id) {
 

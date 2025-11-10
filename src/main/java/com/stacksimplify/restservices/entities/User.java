@@ -11,14 +11,16 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import org.springframework.hateoas.ResourceSupport;
+
 //Entity
 @Entity
 @Table(name = "user")
-public class User {
+public class User extends ResourceSupport {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long userid;
 	@NotEmpty(message = "Username is mandatory field. Please provide username.")
 	@Column(name = "USER_NAME", length = 50, nullable = false, unique = true)
 	private String username;
@@ -50,27 +52,32 @@ public class User {
 	}
 
 //FIELD CONSTRUCTOR
-	public User(Long id, String username, String firstname, String secondname, String ssn, String role, String email) {
-		this.id = id;
+
+	public User(Long userid,
+			@NotEmpty(message = "Username is mandatory field. Please provide username.") String username,
+			@Size(min = 2, message = "first name should have at least 2 characters.") String firstname,
+			String secondname, String ssn, String role, String email, List<Order> orders) {
+		super();
+		this.userid = userid;
 		this.username = username;
 		this.firstname = firstname;
 		this.secondname = secondname;
 		this.ssn = ssn;
 		this.role = role;
 		this.email = email;
-	}
-
-//GETTERS AND SETTERS
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
+		this.orders = orders;
 	}
 
 	public String getUsername() {
 		return username;
+	}
+
+	public Long getUserid() {
+		return userid;
+	}
+
+	public void setUserid(Long userid) {
+		this.userid = userid;
 	}
 
 	public void setUsername(String username) {
@@ -116,12 +123,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-//TO STRING METHOD (Optional required for bean logging)
+	// TO STRING METHOD (Optional required for bean logging)
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", firstname=" + firstname + ", secondname=" + secondname
-				+ ", ssn=" + ssn + ", role=" + role + ", email=" + email + "]";
+		return "User [userid=" + userid + ", username=" + username + ", firstname=" + firstname + ", secondname="
+				+ secondname + ", ssn=" + ssn + ", role=" + role + ", email=" + email + ", orders=" + orders + "]";
 	}
 
 }

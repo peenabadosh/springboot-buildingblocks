@@ -49,4 +49,10 @@ public class OrderController {
 		order.setUser(user);
 		return orderRepository.save(order);
 	}
+	// get orders by order id
+		//@GetMapping("{userid}/orders/{orderid}")
+	//	public List<Order> getOrderByOrderId(@PathVariable Long orderid)
+		//{
+			//Optional<Order> orderOptional = orderRepository.findById(orderid);
+		//}
 }
