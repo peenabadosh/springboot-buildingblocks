@@ -32,6 +32,7 @@ public class HelloWorldController1 {
 		return new UserDetails("Richa", "Sharma", "Noida");
 	}
 
+@SuppressWarnings("deprecation")
 @GetMapping("/hello-int")
 public String getMessageinI18NFormat(@RequestHeader(name="Accept-Language", required = false) String locale)
 {

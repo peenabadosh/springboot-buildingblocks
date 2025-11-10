@@ -13,9 +13,13 @@ import javax.validation.constraints.Size;
 
 import org.springframework.hateoas.ResourceSupport;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 //Entity
 @Entity
 @Table(name = "user")
+@JsonIgnoreProperties({"firstname", "lastname"})
 public class User extends ResourceSupport {
 
 	@Id
@@ -30,7 +34,9 @@ public class User extends ResourceSupport {
 	@Column(name = "SECOND_NAME", length = 50, nullable = false)
 	private String secondname;
 	@Column(name = "SSN", length = 50, nullable = false)
+	@JsonIgnore
 	private String ssn;
+	
 	@Column(name = "ROLE", length = 50, nullable = false)
 	private String role;
 	@Column(name = "EMAIL_ADDRESS", length = 50, nullable = false)
