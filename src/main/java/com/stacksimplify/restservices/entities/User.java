@@ -14,32 +14,48 @@ import javax.validation.constraints.Size;
 import org.springframework.hateoas.ResourceSupport;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonView;
 
 //Entity
 @Entity
 @Table(name = "user")
 //@JsonIgnoreProperties({"firstname","secondname"}) - static filtering
-@JsonFilter(value="userFilter")
+//@JsonFilter(value="userFilter") -- used for mappingJacksonValue filter
 public class User extends ResourceSupport {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.External.class)
 	private Long userid;
+
 	@NotEmpty(message = "Username is mandatory field. Please provide username.")
 	@Column(name = "USER_NAME", length = 50, nullable = false, unique = true)
+	@JsonView(Views.External.class)
 	private String username;
+
 	@Size(min = 2, message = "first name should have at least 2 characters.")
 	@Column(name = "FIRST_NAME", length = 50, nullable = false)
+	@JsonView(Views.External.class)
 	private String firstname;
+
 	@Column(name = "SECOND_NAME", length = 50, nullable = false)
+	@JsonView(Views.External.class)
 	private String secondname;
+
 	@Column(name = "SSN", length = 50, nullable = false)
+	@JsonView(Views.Internal.class)
 	private String ssn;
+
 	@Column(name = "ROLE", length = 50, nullable = false)
+	@JsonView(Views.Internal.class)
 	private String role;
+
 	@Column(name = "EMAIL_ADDRESS", length = 50, nullable = false)
+	@JsonView(Views.External.class)
 	private String email;
+
 	@OneToMany(mappedBy = "user")
+	@JsonView(Views.Internal.class)
 	private List<Order> orders;
 
 	public List<Order> getOrders() {
