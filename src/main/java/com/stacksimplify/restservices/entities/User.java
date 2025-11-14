@@ -58,6 +58,9 @@ public class User extends ResourceSupport {
 	@JsonView(Views.Internal.class)
 	private List<Order> orders;
 
+	@Column(name = "ADDRESS")
+	private String address;
+
 	public List<Order> getOrders() {
 		return orders;
 	}
@@ -76,7 +79,7 @@ public class User extends ResourceSupport {
 	public User(Long userid,
 			@NotEmpty(message = "Username is mandatory field. Please provide username.") String username,
 			@Size(min = 2, message = "first name should have at least 2 characters.") String firstname,
-			String secondname, String ssn, String role, String email, List<Order> orders) {
+			String secondname, String ssn, String role, String email, List<Order> orders, String address) {
 		super();
 		this.userid = userid;
 		this.username = username;
@@ -86,6 +89,7 @@ public class User extends ResourceSupport {
 		this.role = role;
 		this.email = email;
 		this.orders = orders;
+		this.address = address;
 	}
 
 	public String getUsername() {
@@ -144,11 +148,21 @@ public class User extends ResourceSupport {
 		this.email = email;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	// TO STRING METHOD (Optional required for bean logging)
+
 	@Override
 	public String toString() {
 		return "User [userid=" + userid + ", username=" + username + ", firstname=" + firstname + ", secondname="
-				+ secondname + ", ssn=" + ssn + ", role=" + role + ", email=" + email + ", orders=" + orders + "]";
+				+ secondname + ", ssn=" + ssn + ", role=" + role + ", email=" + email + ", orders=" + orders
+				+ ", address=" + address + "]";
 	}
 
 }

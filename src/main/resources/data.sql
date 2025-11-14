@@ -1,11 +1,11 @@
-INSERT INTO user (userid, USER_NAME, FIRST_NAME, SECOND_NAME, SSN, role, EMAIL_ADDRESS)
-VALUES (101, 'richa11', 'richa', 'sharma', 'ssn1', 'admin', 'richa.sharma@gmail.com');
+INSERT INTO user (userid, ADDRESS, USER_NAME, FIRST_NAME, SECOND_NAME, SSN, role, EMAIL_ADDRESS)
+VALUES (101, 'Newyork', 'richa11', 'richa', 'sharma', 'ssn1', 'admin', 'richa.sharma@gmail.com');
 
-INSERT INTO user (userid, USER_NAME, FIRST_NAME, SECOND_NAME, SSN, role, EMAIL_ADDRESS)
-VALUES (102, 'disha123', 'disha', 'paltani', 'ssn2', 'tester', 'disha.platani@gmail.com');
+INSERT INTO user (userid,ADDRESS, USER_NAME, FIRST_NAME, SECOND_NAME, SSN, role, EMAIL_ADDRESS)
+VALUES (102, 'New Jersy' ,'disha123', 'disha', 'paltani', 'ssn2', 'tester', 'disha.platani@gmail.com');
 
-INSERT INTO user (userid, USER_NAME, FIRST_NAME, SECOND_NAME, SSN, role, EMAIL_ADDRESS)
-VALUES (103, 'divya1', 'divya', 'sahu', 'ssn3', 'dba', 'divya.sahu@gmail.com');
+INSERT INTO user (userid, ADDRESS, USER_NAME, FIRST_NAME, SECOND_NAME, SSN, role, EMAIL_ADDRESS)
+VALUES (103, 'california', 'divya1', 'divya', 'sahu', 'ssn3', 'dba', 'divya.sahu@gmail.com');
 
 insert into orders values(2001,'order11',101);
 insert into orders values(2002,'order12',102);
