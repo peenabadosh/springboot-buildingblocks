@@ -16,9 +16,6 @@ public class HelloWorldController1 {
 	@Autowired
 	private ResourceBundleMessageSource messageSource;
 
-	// SimpleMethod
-	// URI - /helloWorld
-	// GET -
 
 	@RequestMapping(method = RequestMethod.GET, path = "/helloWorld")
 
